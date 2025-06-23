@@ -1,0 +1,21 @@
+/* Contenedor header */
+header {
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  background-color: #F5E3E0;
+  z-index: 1000;
+}
+
+.header-name {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  color: black;
+}
+
+.header-logo {
+  height: 120px;
+}

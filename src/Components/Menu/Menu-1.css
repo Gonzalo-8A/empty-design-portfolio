@@ -1,0 +1,213 @@
+/* Menu Icon */
+.menu {
+  width: 202px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu-icon {
+  width: 30px;
+  height: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.menu-icon span {
+  display: block;
+  width: 100%;
+  height: 3px;
+  background: black;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* Estado abierto → cruz */
+.menu-icon.open span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.menu-icon.open span:nth-child(2) {
+  opacity: 0;
+}
+.menu-icon.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* Overlay */
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 900;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s;
+}
+
+.menu-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Side Menu */
+.side-menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 100dvh;
+  background: #f3ebe9;
+  z-index: 950;
+  overflow: hidden;
+  transition: width 0.5s ease;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+
+  display: grid;
+  grid-template-rows: auto 1fr auto; /* Inicio - Proyectos - Contacto */
+  grid-template-columns: 100%;
+}
+
+.side-menu.open {
+  width: 300px;
+}
+
+.side-menu > nav {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.side-menu > nav > ul {
+  flex: 1;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.side-menu > nav > ul > li {
+  padding: 1rem 1.5rem;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.side-menu > nav > ul > li:first-child {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.side-menu > nav > ul > li:last-child {
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Contenedor de Proyectos (centro) */
+.projects-menu {
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 1.5rem;
+}
+
+/* Cabecera de proyectos (fija) */
+.submenu-header {
+  padding: 0.5rem 0;
+  cursor: pointer;
+}
+
+/* Lista de proyectos (con scroll) */
+.submenu {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: calc(100vh - 200px); /* Ajuste dinámico */
+  padding: 0;
+  margin: 0;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
+
+.submenu::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}
+
+/* Items de proyectos */
+.submenu li {
+  padding: 0.5rem 0;
+}
+
+.menu-ul {
+  padding: 4rem 1.5rem;
+  list-style: none;
+}
+
+.side-links {
+  text-decoration: none;
+  color: #333;
+}
+
+.side-menu li {
+  color: black;
+  font-size: 1.5rem;
+  flex-grow: 1;
+}
+
+.side-menu a {
+  text-decoration: none;
+}
+
+.project {
+  text-decoration: none;
+  color: #333;
+  font-size: 1.1rem;
+  transition: color 0.2s;
+}
+
+.side-menu a:hover {
+  color: #f5e3e0;
+}
+
+.projects-menu {
+  position: relative;
+  cursor: pointer;
+}
+
+.submenu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+}
+
+.submenu {
+  max-height: 0;
+  overflow: hidden;
+  padding: 0;
+  transition: max-height 0.5s ease;
+}
+
+.projects-menu.open .submenu {
+  max-height: 500px; /* Ajusta según cantidad de proyectos */
+}
+
+.submenu li {
+  margin: 0.3rem 0;
+  padding: 0.2rem 0;
+}
+
+.submenu a {
+  display: block;
+  transition: transform 0.2s;
+}
+
+.submenu a:hover {
+  transform: translateX(5px);
+}

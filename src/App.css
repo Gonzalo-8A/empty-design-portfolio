@@ -1,0 +1,30 @@
+#root {
+  font-family: 'Playfair Display', serif;
+  margin: 0 auto;
+  text-align: center;
+  height: 100dvh;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.no-scroll {
+  overflow: hidden;
+}
+
+/* project-pages CCS */
+
+#project-page {
+  height: calc(100dvh - 120px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#project-page img {
+  height: 300px;
+  object-fit: contain;
+}

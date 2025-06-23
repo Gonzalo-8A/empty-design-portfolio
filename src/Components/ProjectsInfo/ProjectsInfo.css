@@ -1,0 +1,25 @@
+.info-container {
+  width: 30%;
+  margin: auto;
+  color: black;
+  display: grid;
+  grid-template-rows: auto auto 1fr;
+  grid-template-columns: 100%;
+
+  background-color: #f5e3e0;
+  box-shadow: 0 8px 16px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 1rem;
+}
+
+.project-title {
+  margin-top: 2rem;
+}
+
+.project-date {
+  margin-bottom: 1rem;
+}
+
+.project-description {
+  padding: 1rem 2rem;
+  text-align: justify;
+}
