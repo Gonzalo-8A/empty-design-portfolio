@@ -4,6 +4,7 @@ import { NextButton, PrevButton, usePrevNextButtons } from './EmblaCarouselArrow
 import { DotButton, useDotButton } from './EmblaCarouselDotButton'
 import './ProjectsCarousel.css'
 import ProjectsInfo from '../ProjectsInfo/ProjectsInfo'
+import { useNavigate } from 'react-router-dom'
 
 const TWEEN_FACTOR_BASE = 0.84
 
@@ -14,6 +15,7 @@ const ProjectsCarousel = (props) => {
   const [emblaRef, emblaApi] = useEmblaCarousel(options)
   const [isHovering, setIsHovering] = useState(false)
   const tweenFactor = useRef(0)
+  const navigate = useNavigate()
 
   const { selectedIndex, scrollSnaps, onDotButtonClick } = useDotButton(emblaApi)
 
@@ -73,6 +75,18 @@ const ProjectsCarousel = (props) => {
       .on('slideFocus', tweenOpacity)
   }, [emblaApi, tweenOpacity])
 
+  useEffect(() => {
+    if (!emblaApi) return
+    const lastIndex = parseInt(localStorage.getItem('lastProjectIndex'), 10) || 0
+    emblaApi.scrollTo(lastIndex)
+    localStorage.removeItem('lastProjectIndex')
+  }, [emblaApi])
+
+  const handleClick = (slug, index) => {
+    localStorage.setItem('lastProjectIndex', index.toString())
+    navigate(`/proyectos/${slug}`)
+  }
+
   return (
     <>
       <div className='embla'>
@@ -92,6 +106,7 @@ const ProjectsCarousel = (props) => {
                   className='slide-btn'
                   onMouseEnter={() => setIsHovering(true)}
                   onMouseLeave={() => setIsHovering(false)}
+                  onClick={() => handleClick(slide.slug, index)}
                 >
                   Ver Proyecto
                 </button>

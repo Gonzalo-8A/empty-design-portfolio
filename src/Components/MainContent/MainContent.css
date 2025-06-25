@@ -2,7 +2,7 @@
   height: 100dvh;
 }
 
-main{
+#main-content > main{
   height: calc(100dvh - 120px);
   display: flex;
   align-items: center;

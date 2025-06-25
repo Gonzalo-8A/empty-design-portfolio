@@ -4,6 +4,9 @@ import project2 from '../../assets/project-2.jpeg'
 import project3 from '../../assets/project-3.jpg'
 import project4 from '../../assets/project-4.png'
 import project5 from '../../assets/project-5.jpg'
+import project5Extra1 from '../../assets/project-5-extra1.avif'
+import project5Extra2 from '../../assets/project-5-extra2.avif'
+import project5Extra3 from '../../assets/project-5-extra3.avif'
 import project6 from '../../assets/project-6.jpg'
 import project7 from '../../assets/project-7.avif'
 import project8 from '../../assets/project-8.png'
@@ -11,6 +14,7 @@ import project9 from '../../assets/project-9.png'
 
 import { useEffect, useRef } from 'react'
 import { scroller } from 'react-scroll'
+import { motion } from 'framer-motion'
 
 export default function Hero () {
   const backgroundContainerRef = useRef([])
@@ -112,7 +116,12 @@ export default function Hero () {
   }
 
   return (
-    <section className='hero'>
+    <motion.section
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1, transition: { duration: 1 } }}
+      className='hero'
+      id='hero-content'
+    >
       <div className='background-container' ref={backgroundContainerRef}>
         <div className='infinite-carousel'>
           <div>
@@ -127,15 +136,15 @@ export default function Hero () {
             <img src={project4} alt='Image from different projects for Background' />
             <img src={project5} alt='Image from different projects for Background' />
             <img src={project6} alt='Image from different projects for Background' />
-            <img src={project2} alt='Image from different projects for Background' />
+            <img src={project5Extra1} alt='Image from different projects for Background' />
           </div>
         </div>
         <div className='infinite-carousel'>
           <div>
             <img src={project7} alt='Image from different projects for Background' />
-            <img src={project8} alt='Image from different projects for Background' />
+            <img src={project5Extra2} alt='Image from different projects for Background' />
             <img src={project9} alt='Image from different projects for Background' />
-            <img src={project1} alt='Image from different projects for Background' />
+            <img src={project5Extra3} alt='Image from different projects for Background' />
           </div>
         </div>
         <div className='infinite-carousel'>
@@ -164,6 +173,6 @@ export default function Hero () {
           <path d='M12 16.5L5 9.5L6.4 8.1L12 13.7L17.6 8.1L19 9.5L12 16.5Z' />
         </svg>
       </span>
-    </section>
+    </motion.section>
   )
 }
