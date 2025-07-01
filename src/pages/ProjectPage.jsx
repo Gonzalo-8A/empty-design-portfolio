@@ -7,12 +7,18 @@ import { useEffect, useState } from 'react'
 
 export default function ProjectPage () {
   const { slug } = useParams()
-  const project = PROJECTS.find((p) => p.slug === slug)
+  const currentIndex = PROJECTS.findIndex((p) => p.slug === slug)
+  const project = PROJECTS[currentIndex]
+  const nextIndex = (currentIndex + 1) % PROJECTS.length
+  const nextProject = PROJECTS[nextIndex]
+
   const [play, setPlay] = useState(0)
 
   useEffect(() => {
     window.scrollTo(0, 0)
+    console.log(project, nextProject)
   }, [])
+
   return (
     <>
       <motion.section
@@ -56,10 +62,32 @@ export default function ProjectPage () {
           >
             {project.title}
           </motion.h1>
-          <div className='pp-info'>
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1, transition: { duration: 1.5 } }}
+            viewport={{
+              once: true,
+              amount: 0.9
+            }}
+            className='pp-info'
+          >
             <p>{project.description}</p>
-          </div>
+          </motion.div>
           <div className='pp-layout'>
+            {slug === 'project-1' && (
+              <div className='projects-container'>
+                {project.projectPage.img.map((img) => {
+                  return (
+                    <img
+                      key={img}
+                      src={img}
+                      alt='Portadas Editoriales'
+                      style={{ width: '900px', borderRadius: '1rem' }}
+                    />
+                  )
+                })}
+              </div>
+            )}
             {slug === 'project-3' && (
               <img
                 src={project.projectPage.img}
@@ -87,6 +115,34 @@ export default function ProjectPage () {
             )}
           </div>
         </main>
+        <footer>
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0, transition: { duration: 1.5 } }}
+            viewport={{ once: true, amount: 0.8 }}
+            className='project-nav hover-effect'
+          >
+            <span className='hover-text left'>← Volver a Proyectos</span>
+          </motion.div>
+          <motion.p
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0, transition: { duration: 1.5 } }}
+            viewport={{
+              once: true,
+              amount: 0.8
+            }}
+          >
+            Contact Me
+          </motion.p>
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0, transition: { duration: 1.5 } }}
+            viewport={{ once: true, amount: 0.8 }}
+            className='project-nav hover-effect'
+          >
+            <span className='hover-text right'>Ver próximo Proyecto →</span>
+          </motion.div>
+        </footer>
       </motion.section>
     </>
   )

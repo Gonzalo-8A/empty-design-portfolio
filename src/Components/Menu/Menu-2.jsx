@@ -11,17 +11,18 @@ export default function Menu () {
       const body = document.body
       const scrollbarWidth = window.innerWidth - body.offsetWidth
 
-      // Aplica al body
       body.style.overflow = 'hidden'
       body.style.paddingRight = `${scrollbarWidth}px`
 
-      // Aplica también al overlay
       overlayRef.current.style.paddingRight = `${scrollbarWidth}px`
+
+      document.querySelector('.pp-img-container').style.paddingRight = `${scrollbarWidth}px`
 
       return () => {
         body.style.overflow = ''
         body.style.paddingRight = ''
         overlayRef.current.style.paddingRight = ''
+        document.querySelector('.pp-img-container').style.paddingRight = ''
       }
     }
   }, [isOpen])
