@@ -3,7 +3,7 @@ import useEmblaCarousel from 'embla-carousel-react'
 import { NextButton, PrevButton, usePrevNextButtons } from './EmblaCarouselArrowButtons'
 import { DotButton, useDotButton } from './EmblaCarouselDotButton'
 import './ProjectsCarousel.css'
-import ProjectsInfo from '../ProjectsInfo/ProjectsInfo'
+// import ProjectsInfo from '../ProjectsInfo/ProjectsInfo'
 import { useNavigate } from 'react-router-dom'
 
 const TWEEN_FACTOR_BASE = 0.84
@@ -132,7 +132,7 @@ const ProjectsCarousel = (props) => {
           </div>
         </div>
       </div>
-      <ProjectsInfo index={selectedIndex} />
+      {/* <ProjectsInfo index={selectedIndex} /> */}
     </>
   )
 }

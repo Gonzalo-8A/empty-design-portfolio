@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { PROJECTS } from '../data/PROJECTS'
 import { motion } from 'framer-motion'
 import Header from '../Components/Header/Header'
@@ -6,6 +6,7 @@ import './ProjectPage.css'
 import { useEffect, useState } from 'react'
 
 export default function ProjectPage () {
+  const navigate = useNavigate()
   const { slug } = useParams()
   const currentIndex = PROJECTS.findIndex((p) => p.slug === slug)
   const project = PROJECTS[currentIndex]
@@ -16,8 +17,15 @@ export default function ProjectPage () {
 
   useEffect(() => {
     window.scrollTo(0, 0)
-    console.log(project, nextProject)
   }, [])
+
+  const handleClickBack = () => {
+    navigate('/home')
+  }
+
+  const handleClickNextProject = (slug) => {
+    navigate(`/proyectos/${slug}`)
+  }
 
   return (
     <>
@@ -121,6 +129,7 @@ export default function ProjectPage () {
             whileInView={{ opacity: 1, x: 0, transition: { duration: 1.5 } }}
             viewport={{ once: true, amount: 0.8 }}
             className='project-nav hover-effect'
+            onClick={handleClickBack}
           >
             <span className='hover-text left'>← Volver a Proyectos</span>
           </motion.div>
@@ -139,6 +148,7 @@ export default function ProjectPage () {
             whileInView={{ opacity: 1, x: 0, transition: { duration: 1.5 } }}
             viewport={{ once: true, amount: 0.8 }}
             className='project-nav hover-effect'
+            onClick={() => handleClickNextProject(nextProject.slug)}
           >
             <span className='hover-text right'>Ver próximo Proyecto →</span>
           </motion.div>

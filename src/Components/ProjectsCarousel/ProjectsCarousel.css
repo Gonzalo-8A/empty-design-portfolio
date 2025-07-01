@@ -1,5 +1,5 @@
 .embla {
-  max-width: 50rem;
+  max-width: 60rem;
   margin: auto;
   --slide-height: 19rem;
   --slide-spacing: 1rem;
@@ -11,8 +11,8 @@
   padding: 0.5rem 2rem;
   border-radius: 1rem;
 
-  background-color: #F5E3E0;
-  box-shadow: 0 8px 16px 4px rgba(0, 0, 0, 0.1); /* Sombra más expandida */
+  /* background-color: #F5E3E0;
+  box-shadow: 0 8px 16px 4px rgba(0, 0, 0, 0.1); */
 }
 
 /* .embla:hover {

@@ -62,7 +62,7 @@ export const PROJECTS = [
   {
     id: 5,
     date: 2024,
-    title: 'Logo Design Cards',
+    title: 'Branding Logo',
     img: project5,
     slug: 'project-5',
     description:
@@ -78,7 +78,7 @@ export const PROJECTS = [
     img: project6,
     slug: 'project-6',
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sed tortor imperdiet, vulputate lorem eu, venenatis est. Nulla faucibus rutrum magna et scelerisque. Donec eu aliquet enim. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras at scelerisque justo. Vivamus dignissim, odio sed luctus tristique, tortor lectus vulputate lorem, eu dapibus nunc enim ac augue. Fusce ornare rhoncus elit sit amet vehicula. Donec accumsan libero ut aliquet hendrerit. Nunc id varius mi. Sed quam elit, placerat ut metus nec, consectetur condimentum enim. Pellentesque et dui massa. Integer porttitor quam sit amet libero suscipit, a pretium est consequat. Donec laoreet, ipsum id posuere lacinia, felis justo ultrices libero, eu auctor eros neque et lorem. Cras tempor dictum mollis. Phasellus laoreet efficitur faucibus. Praesent feugiat suscipit lorem, vel fringilla quam.',
+      'El proyecto de branding y packaging para Eira Fondos se centró en reflejar la calidad premium y los valores de la marca: autenticidad, tradición y frescura. El logotipo fue diseñado con líneas limpias y elementos gráficos relacionados con el olivo, garantizando su versatilidad en diferentes formatos. La identidad visual utiliza una paleta de colores naturales, con colores negros y dorados, y tipografía moderna que equilibra tradición y vanguardia. El diseño de packaging emplea materiales de alta calidad, acabados mate y detalles en relieve para una presentación sofisticada. Además, se apostó por la sostenibilidad con materiales reciclables. Se creó también un catálogo de productos que destaca la esencia artesanal de la marca y unos materiales de papelería coherentes y elegantes. Cada elemento, desde las tarjetas de visitahasta las cajas, refleja la identidad sólida y profesional de Eira Foods.',
     projectPage: {}
   },
   {

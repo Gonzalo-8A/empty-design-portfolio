@@ -16,13 +16,19 @@ export default function Menu () {
 
       overlayRef.current.style.paddingRight = `${scrollbarWidth}px`
 
-      document.querySelector('.pp-img-container').style.paddingRight = `${scrollbarWidth}px`
+      const ppImgContainer = document.querySelector('.pp-img-container')
+      if (ppImgContainer) {
+        ppImgContainer.style.paddingRight = `${scrollbarWidth}px`
+      }
 
       return () => {
         body.style.overflow = ''
         body.style.paddingRight = ''
         overlayRef.current.style.paddingRight = ''
-        document.querySelector('.pp-img-container').style.paddingRight = ''
+
+        if (ppImgContainer) {
+          ppImgContainer.style.paddingRight = ''
+        }
       }
     }
   }, [isOpen])
@@ -50,7 +56,7 @@ export default function Menu () {
             <a href='#main-content'>PROYETOS</a>
           </li>
           <li className='overlay-li'>
-            <a href=''>CONTACTO</a>
+            <a href='#footer'>CONTACTO</a>
           </li>
           <li className='overlay-li'>
             <a href=''>SOBRE MÍ</a>
