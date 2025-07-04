@@ -1,11 +1,14 @@
 import './App.css'
 import { BrowserRouter } from 'react-router-dom'
 import AnimatedRoutes from './routes/AnimatedRoutes.jsx'
+import { PageProvider } from './context/page.jsx'
 
 function App () {
   return (
     <BrowserRouter>
-      <AnimatedRoutes />
+      <PageProvider>
+        <AnimatedRoutes />
+      </PageProvider>
     </BrowserRouter>
   )
 }

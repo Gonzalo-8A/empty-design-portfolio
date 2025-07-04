@@ -1,9 +1,11 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, useContext } from 'react'
 import './Menu-2.css'
 import { scroller } from 'react-scroll'
+import { PageContext } from '../../context/page'
 
 export default function Menu () {
   const [isOpen, setIsOpen] = useState(false)
+  const { setSection } = useContext(PageContext)
 
   const overlayRef = useRef(null)
 
@@ -56,6 +58,7 @@ export default function Menu () {
           <li className='overlay-li'>
             <a
               onClick={() => {
+                setSection('projects')
                 scroller.scrollTo('main-content', {
                   duration: 1500,
                   smooth: 'easeInOutQuad',
@@ -80,7 +83,18 @@ export default function Menu () {
             </a>
           </li>
           <li className='overlay-li'>
-            <a href=''>SOBRE MÍ</a>
+            <a
+              onClick={() => {
+                setSection('personal')
+                scroller.scrollTo('main-content', {
+                  duration: 1500,
+                  smooth: 'easeInOutQuad',
+                  offset: 0
+                })
+              }}
+            >
+              SOBRE MÍ
+            </a>
           </li>
           <li className='overlay-li'>
             <a href=''>RESERVA ONLINE</a>
