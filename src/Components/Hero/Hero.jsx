@@ -70,14 +70,11 @@ export default function Hero () {
   useEffect(() => {
     const title = titleRef.current
 
-    // Función para actualizar la posición del mouse globalmente
     const handleGlobalMouseMove = (e) => {
       if (isHoveringTitle.current) {
-        // Usamos las coordenadas globales del viewport
         const x = e.clientX
         const y = e.clientY
 
-        // Actualizamos las variables CSS en el título
         title.style.setProperty('--x', `${x}px`)
         title.style.setProperty('--y', `${y}px`)
       }
@@ -93,10 +90,8 @@ export default function Hero () {
       title.classList.remove('reveal-hover')
     }
 
-    // Escuchador global para el movimiento del mouse
     window.addEventListener('mousemove', handleGlobalMouseMove)
 
-    // Escuchadores específicos del título para enter/leave
     title.addEventListener('mouseenter', handleMouseEnter)
     title.addEventListener('mouseleave', handleMouseLeave)
 

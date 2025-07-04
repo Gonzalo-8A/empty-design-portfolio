@@ -62,28 +62,50 @@
   filter: drop-shadow(0 0 6px currentColor);
 }
 
-.social-media-links .instagram:hover {
+.instagram:hover {
   color: #E1306C;
 }
-.social-media-links .linkedin:hover {
+.linkedin:hover {
   color: #0A66C2;
 }
-.social-media-links .facebook:hover {
-  color: #1877F2;
+.whatsapp:hover {
+  color: #25D366;
 }
-.social-media-links .twitter:hover {
-  color: #1DA1F2;
+.gmail:hover {
+  color: #D44638;
 }
+
 
 .footer-name {
   width: 100vw;
-  padding: 0 1rem;
-  text-align: center;
   box-sizing: border-box;
 }
 
-.footer-name span{
+.footer-name .marquee {
+  display: flex;
+  width: fit-content;
+  animation: scroll-left 105s linear infinite;
+  gap: 3rem;
+}
+
+.marquee-content {
+  display: flex;
+  gap: 3rem;
+}
+
+.marquee-content span {
   font-size: clamp(3rem, 12.5vw, 50rem);
   font-weight: 700;
-  white-space: nowrap
+  white-space: nowrap;
+  pointer-events: none;
+  flex-shrink: 0;
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }

@@ -1,7 +1,7 @@
 .embla {
   max-width: 60rem;
   margin: auto;
-  --slide-height: 19rem;
+  --slide-height: 25rem;
   --slide-spacing: 1rem;
   --slide-size: 70%;
   display: flex;
@@ -14,11 +14,6 @@
   /* background-color: #F5E3E0;
   box-shadow: 0 8px 16px 4px rgba(0, 0, 0, 0.1); */
 }
-
-/* .embla:hover {
-  transform: scale(8);
-  opacity: 0.5;
-} */
 
 .embla-title {
   width: 100%;

@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import './Menu-2.css'
+import { scroller } from 'react-scroll'
 
 export default function Menu () {
   const [isOpen, setIsOpen] = useState(false)
@@ -53,10 +54,30 @@ export default function Menu () {
       >
         <ul className='overlay-ul'>
           <li className='overlay-li'>
-            <a href='#main-content'>PROYETOS</a>
+            <a
+              onClick={() => {
+                scroller.scrollTo('main-content', {
+                  duration: 1500,
+                  smooth: 'easeInOutQuad',
+                  offset: 0
+                })
+              }}
+            >
+              PROYETOS
+            </a>
           </li>
           <li className='overlay-li'>
-            <a href='#footer'>CONTACTO</a>
+            <a
+              onClick={() => {
+                scroller.scrollTo('footer', {
+                  duration: 1500,
+                  smooth: 'easeInOutQuad',
+                  offset: 0
+                })
+              }}
+            >
+              CONTACTO
+            </a>
           </li>
           <li className='overlay-li'>
             <a href=''>SOBRE MÍ</a>

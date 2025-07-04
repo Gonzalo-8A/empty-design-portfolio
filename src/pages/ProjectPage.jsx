@@ -23,7 +23,8 @@ export default function ProjectPage () {
     navigate('/home')
   }
 
-  const handleClickNextProject = (slug) => {
+  const handleClickNextProject = (slug, index) => {
+    localStorage.setItem('lastProjectIndex', index.toString())
     navigate(`/proyectos/${slug}`)
   }
 
@@ -148,7 +149,7 @@ export default function ProjectPage () {
             whileInView={{ opacity: 1, x: 0, transition: { duration: 1.5 } }}
             viewport={{ once: true, amount: 0.8 }}
             className='project-nav hover-effect'
-            onClick={() => handleClickNextProject(nextProject.slug)}
+            onClick={() => handleClickNextProject(nextProject.slug, (nextProject.id - 1))}
           >
             <span className='hover-text right'>Ver próximo Proyecto →</span>
           </motion.div>
