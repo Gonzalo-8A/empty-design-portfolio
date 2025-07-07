@@ -30,7 +30,7 @@ export default function Hero () {
       (entries) => {
         entries.forEach((entry) => {
           const isVisible = entry.isIntersecting
-          carousels.forEach((carousel, i) => {
+          carousels.forEach((carousel) => {
             const carouselInner = carousel.querySelector('div')
             if (carouselInner) {
               carouselInner.style.animationPlayState = isVisible ? 'running' : 'paused'
@@ -46,13 +46,18 @@ export default function Hero () {
 
     carousels.forEach((carousel, i) => {
       const carouselInner = carousel.querySelector('div')
-      const carouselContent = Array.from(carouselInner.children)
+      if (!carouselInner || carouselInner.dataset.duplicated === 'true') return
 
-      carouselContent.forEach((item) => {
-        const duplicatedItem = item.cloneNode(true)
-        carouselInner.appendChild(duplicatedItem)
-      })
+      const originalChildren = Array.from(carouselInner.children)
 
+      for (let d = 0; d < 3; d++) {
+        originalChildren.forEach((item) => {
+          const clone = item.cloneNode(true)
+          carouselInner.appendChild(clone)
+        })
+      }
+
+      carouselInner.dataset.duplicated = 'true'
       carouselInner.style.animation = `move ${speeds[i]}s linear infinite ${directions[i]}`
     })
 
