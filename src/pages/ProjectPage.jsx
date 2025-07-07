@@ -12,7 +12,7 @@ export default function ProjectPage () {
   const [play, setPlay] = useState(0)
   const navigate = useNavigate()
   const { slug } = useParams()
-  const { setScrollTarget } = useContext(PageContext)
+  const { setScrollTarget, setSection } = useContext(PageContext)
 
   const currentIndex = PROJECTS.findIndex((p) => p.slug === slug)
   const project = PROJECTS[currentIndex]
@@ -25,6 +25,7 @@ export default function ProjectPage () {
   }, [])
 
   const handleClickBack = () => {
+    setSection('projects')
     setScrollTarget('main-content')
     navigate('/home')
   }
