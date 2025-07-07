@@ -2,10 +2,12 @@ import { useState, useEffect, useRef, useContext } from 'react'
 import './Menu-2.css'
 import { scroller } from 'react-scroll'
 import { PageContext } from '../../context/page'
+import { useNavigate } from 'react-router-dom'
 
 export default function Menu () {
   const [isOpen, setIsOpen] = useState(false)
-  const { setSection } = useContext(PageContext)
+  const { setSection, setScrollTarget, isOnHome } = useContext(PageContext)
+  const navigate = useNavigate()
 
   const overlayRef = useRef(null)
 
@@ -59,11 +61,16 @@ export default function Menu () {
             <a
               onClick={() => {
                 setSection('projects')
-                scroller.scrollTo('main-content', {
-                  duration: 1500,
-                  smooth: 'easeInOutQuad',
-                  offset: 0
-                })
+                if (!isOnHome) {
+                  setScrollTarget('main-content')
+                  navigate('/home')
+                } else {
+                  scroller.scrollTo('main-content', {
+                    duration: 1500,
+                    smooth: 'easeInOutQuad',
+                    offset: 0
+                  })
+                }
               }}
             >
               PROYETOS
@@ -72,11 +79,16 @@ export default function Menu () {
           <li className='overlay-li'>
             <a
               onClick={() => {
-                scroller.scrollTo('footer', {
-                  duration: 1500,
-                  smooth: 'easeInOutQuad',
-                  offset: 0
-                })
+                if (!isOnHome) {
+                  setScrollTarget('footer')
+                  navigate('/home')
+                } else {
+                  scroller.scrollTo('footer', {
+                    duration: 1500,
+                    smooth: 'easeInOutQuad',
+                    offset: 0
+                  })
+                }
               }}
             >
               CONTACTO
@@ -86,11 +98,16 @@ export default function Menu () {
             <a
               onClick={() => {
                 setSection('personal')
-                scroller.scrollTo('main-content', {
-                  duration: 1500,
-                  smooth: 'easeInOutQuad',
-                  offset: 0
-                })
+                if (!isOnHome) {
+                  setScrollTarget('main-content')
+                  navigate('/home')
+                } else {
+                  scroller.scrollTo('main-content', {
+                    duration: 1500,
+                    smooth: 'easeInOutQuad',
+                    offset: 0
+                  })
+                }
               }}
             >
               SOBRE MÍ

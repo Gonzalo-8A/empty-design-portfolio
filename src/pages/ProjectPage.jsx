@@ -3,11 +3,15 @@ import { PROJECTS } from '../data/PROJECTS'
 import { motion } from 'framer-motion'
 import Header from '../Components/Header/Header'
 import './ProjectPage.css'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useContext } from 'react'
+
+import { PageContext } from '../context/page'
 
 export default function ProjectPage () {
   const navigate = useNavigate()
   const { slug } = useParams()
+  const { setScrollTarget } = useContext(PageContext)
+
   const currentIndex = PROJECTS.findIndex((p) => p.slug === slug)
   const project = PROJECTS[currentIndex]
   const nextIndex = (currentIndex + 1) % PROJECTS.length
@@ -20,6 +24,7 @@ export default function ProjectPage () {
   }, [])
 
   const handleClickBack = () => {
+    setScrollTarget('main-content')
     navigate('/home')
   }
 
@@ -73,10 +78,10 @@ export default function ProjectPage () {
           </motion.h1>
           <motion.div
             initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1, transition: { duration: 1.5 } }}
+            whileInView={{ opacity: 1, transition: { duration: 2.5 } }}
             viewport={{
               once: true,
-              amount: 0.9
+              amount: 0.5
             }}
             className='pp-info'
           >
@@ -84,7 +89,7 @@ export default function ProjectPage () {
           </motion.div>
           <div className='pp-layout'>
             {slug === 'project-1' && (
-              <div className='projects-container'>
+              <div className='pp-projects-container'>
                 {project.projectPage.img.map((img) => {
                   return (
                     <img
@@ -124,31 +129,36 @@ export default function ProjectPage () {
             )}
           </div>
         </main>
-        <footer>
+        <footer className='pp-footer'>
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0, transition: { duration: 1.5 } }}
             viewport={{ once: true, amount: 0.8 }}
-            className='project-nav hover-effect'
+            className='pp-project-nav'
             onClick={handleClickBack}
           >
             <span className='hover-text left'>← Volver a Proyectos</span>
           </motion.div>
-          <motion.p
+          <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0, transition: { duration: 1.5 } }}
             viewport={{
               once: true,
               amount: 0.8
             }}
+            className='pp-project-nav'
+            onClick={() => {
+              setScrollTarget('footer')
+              navigate('/home')
+            }}
           >
-            Contact Me
-          </motion.p>
+            <span className='hover-text center'>Contact Me</span>
+          </motion.div>
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0, transition: { duration: 1.5 } }}
             viewport={{ once: true, amount: 0.8 }}
-            className='project-nav hover-effect'
+            className='pp-project-nav'
             onClick={() => handleClickNextProject(nextProject.slug, (nextProject.id - 1))}
           >
             <span className='hover-text right'>Ver próximo Proyecto →</span>

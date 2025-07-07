@@ -1,8 +1,10 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react'
+import './ProjectsCarousel.css'
+
+import { useCallback, useEffect, useRef, useState } from 'react'
 import useEmblaCarousel from 'embla-carousel-react'
 import { NextButton, PrevButton, usePrevNextButtons } from './EmblaCarouselArrowButtons'
 import { DotButton, useDotButton } from './EmblaCarouselDotButton'
-import './ProjectsCarousel.css'
+import { motion } from 'framer-motion'
 // import ProjectsInfo from '../ProjectsInfo/ProjectsInfo'
 import { useNavigate } from 'react-router-dom'
 
@@ -84,12 +86,20 @@ const ProjectsCarousel = (props) => {
 
   const handleClick = (slug, index) => {
     localStorage.setItem('lastProjectIndex', index.toString())
+    console.log(slides[0])
     navigate(`/proyectos/${slug}`)
   }
 
   return (
     <>
-      <div className='embla'>
+      <motion.div
+        className='embla'
+        key='projects'
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 1 }}
+      >
         <div className='embla-title'>
           <h2>Nuestros proyectos</h2>
         </div>
@@ -131,7 +141,7 @@ const ProjectsCarousel = (props) => {
             ))}
           </div>
         </div>
-      </div>
+      </motion.div>
       {/* <ProjectsInfo index={selectedIndex} /> */}
     </>
   )

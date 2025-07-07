@@ -38,14 +38,14 @@
   margin-bottom: 3rem;
 }
 
-.projects-container{
+.pp-projects-container{
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
-footer{
+.pp-footer{
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -58,7 +58,11 @@ footer{
   overflow: hidden;
 }
 
-.project-nav {
+.pp-footer p{
+  cursor: pointer;
+}
+
+.pp-project-nav {
   display: flex;
   align-items: center;
   font-size: 1.8rem;
@@ -73,10 +77,25 @@ footer{
   background-position: 0 0;
   -webkit-background-clip: text;
   background-clip: text;
-  transition: background-position 1.5s ease;
+  transition: all 1s ease;
 }
-.project-nav:hover .hover-text.left {
+.pp-project-nav:hover .hover-text.left {
+  transform: scale(1.2);
   background-position: 100% 0;
+}
+
+.hover-text.center {
+  color: transparent;
+  background: linear-gradient(to bottom, white 50%, black 50%);
+  background-size: 100% 200%;
+  background-position: 0 -100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  transition: all 1s ease;
+}
+.pp-project-nav:hover .hover-text.center {
+  transform: scale(1.2);
+  background-position: 0 0;
 }
 
 .hover-text.right {
@@ -86,10 +105,10 @@ footer{
   background-position: 100% 0;
   -webkit-background-clip: text;
   background-clip: text;
-  transition: background-position 1.5s ease;
+  transition: all 1s ease;
 }
-
-.project-nav:hover .hover-text.right {
+.pp-project-nav:hover .hover-text.right {
+  transform: scale(1.2);
   background-position: 0 0;
 }
 

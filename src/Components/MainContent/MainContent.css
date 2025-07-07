@@ -7,6 +7,12 @@
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+}
+
+.personal-container{
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
   position: relative;
   padding: 0 3rem;
 }
