@@ -12,9 +12,8 @@ import { useIsMobile } from '../../hooks/useIsMobile.js'
 
 export default function MainContent () {
   const { section, setSection } = useContext(PageContext)
-
+  const isMobile = useIsMobile(682)
   const projectsShown = useMemo(() => {
-    const isMobile = useIsMobile(682)
     const count = isMobile ? 3 : 6
     return PROJECTS.toSorted(() => Math.random() - 0.5).slice(0, count)
   }, [])
