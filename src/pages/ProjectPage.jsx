@@ -80,10 +80,7 @@ export default function ProjectPage () {
           </motion.h1>
           <motion.div
             initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1, transition: { duration: 2.5 } }}
-            viewport={{
-              once: true
-            }}
+            animate={{ opacity: 1, transition: { duration: 2.5 } }}
             className='pp-info'
           >
             <p>{project.description}</p>
