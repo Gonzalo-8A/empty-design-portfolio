@@ -22,8 +22,6 @@ export default function Hero () {
   const isHoveringTitle = useRef(false)
 
   useEffect(() => {
-    const directions = ['normal', 'reverse', 'normal', 'reverse']
-    const speeds = [70, 55, 60, 50]
     const carousels = backgroundContainerRef.current.querySelectorAll('.infinite-carousel')
 
     const observer = new IntersectionObserver(
@@ -43,23 +41,6 @@ export default function Hero () {
         rootMargin: '0px 0px 0px 0px'
       }
     )
-
-    carousels.forEach((carousel, i) => {
-      const carouselInner = carousel.querySelector('div')
-      if (!carouselInner || carouselInner.dataset.duplicated === 'true') return
-
-      const originalChildren = Array.from(carouselInner.children)
-
-      for (let d = 0; d < 3; d++) {
-        originalChildren.forEach((item) => {
-          const clone = item.cloneNode(true)
-          carouselInner.appendChild(clone)
-        })
-      }
-
-      carouselInner.dataset.duplicated = 'true'
-      carouselInner.style.animation = `move ${speeds[i]}s linear infinite ${directions[i]}`
-    })
 
     if (backgroundContainerRef.current) {
       observer.observe(backgroundContainerRef.current)
@@ -124,7 +105,19 @@ export default function Hero () {
     >
       <div className='background-container' ref={backgroundContainerRef}>
         <div className='infinite-carousel'>
-          <div>
+          <div style={{ animation: 'move 70s linear infinite normal' }}>
+            <img src={project1} alt='Image from different projects for Background' />
+            <img src={project2} alt='Image from different projects for Background' />
+            <img src={project3} alt='Image from different projects for Background' />
+            <img src={project8} alt='Image from different projects for Background' />
+            <img src={project1} alt='Image from different projects for Background' />
+            <img src={project2} alt='Image from different projects for Background' />
+            <img src={project3} alt='Image from different projects for Background' />
+            <img src={project8} alt='Image from different projects for Background' />
+            <img src={project1} alt='Image from different projects for Background' />
+            <img src={project2} alt='Image from different projects for Background' />
+            <img src={project3} alt='Image from different projects for Background' />
+            <img src={project8} alt='Image from different projects for Background' />
             <img src={project1} alt='Image from different projects for Background' />
             <img src={project2} alt='Image from different projects for Background' />
             <img src={project3} alt='Image from different projects for Background' />
@@ -132,7 +125,19 @@ export default function Hero () {
           </div>
         </div>
         <div className='infinite-carousel'>
-          <div>
+          <div style={{ animation: 'move 55s linear infinite reverse' }}>
+            <img src={project4} alt='Image from different projects for Background' />
+            <img src={project5} alt='Image from different projects for Background' />
+            <img src={project6} alt='Image from different projects for Background' />
+            <img src={project5Extra1} alt='Image from different projects for Background' />
+            <img src={project4} alt='Image from different projects for Background' />
+            <img src={project5} alt='Image from different projects for Background' />
+            <img src={project6} alt='Image from different projects for Background' />
+            <img src={project5Extra1} alt='Image from different projects for Background' />
+            <img src={project4} alt='Image from different projects for Background' />
+            <img src={project5} alt='Image from different projects for Background' />
+            <img src={project6} alt='Image from different projects for Background' />
+            <img src={project5Extra1} alt='Image from different projects for Background' />
             <img src={project4} alt='Image from different projects for Background' />
             <img src={project5} alt='Image from different projects for Background' />
             <img src={project6} alt='Image from different projects for Background' />
@@ -140,7 +145,19 @@ export default function Hero () {
           </div>
         </div>
         <div className='infinite-carousel'>
-          <div>
+          <div style={{ animation: 'move 60s linear infinite normal' }}>
+            <img src={project7} alt='Image from different projects for Background' />
+            <img src={project5Extra2} alt='Image from different projects for Background' />
+            <img src={project9} alt='Image from different projects for Background' />
+            <img src={project5Extra3} alt='Image from different projects for Background' />{' '}
+            <img src={project7} alt='Image from different projects for Background' />
+            <img src={project5Extra2} alt='Image from different projects for Background' />
+            <img src={project9} alt='Image from different projects for Background' />
+            <img src={project5Extra3} alt='Image from different projects for Background' />{' '}
+            <img src={project7} alt='Image from different projects for Background' />
+            <img src={project5Extra2} alt='Image from different projects for Background' />
+            <img src={project9} alt='Image from different projects for Background' />
+            <img src={project5Extra3} alt='Image from different projects for Background' />{' '}
             <img src={project7} alt='Image from different projects for Background' />
             <img src={project5Extra2} alt='Image from different projects for Background' />
             <img src={project9} alt='Image from different projects for Background' />
@@ -148,8 +165,21 @@ export default function Hero () {
           </div>
         </div>
         <div className='infinite-carousel'>
-          <div>
+          <div style={{ animation: 'move 50s linear infinite reverse' }}>
             <img src={project2} alt='Image from different projects for Background' />
+            <img src={project1} alt='Image from different projects for Background' />
+            <img src={project5} alt='Image from different projects for Background' />
+            <img src={project7} alt='Image from different projects for Background' />{' '}
+            <img src={project2} alt='Image from different projects for Background' />
+            <img src={project1} alt='Image from different projects for Background' />
+            <img src={project5} alt='Image from different projects for Background' />
+            <img src={project7} alt='Image from different projects for Background' />{' '}
+            <img src={project2} alt='Image from different projects for Background' />
+            <img src={project1} alt='Image from different projects for Background' />
+            <img src={project5} alt='Image from different projects for Background' />
+            <img src={project7} alt='Image from different projects for Background' />{' '}
+            <img src={project2} alt='Image from different projects for Background' />
+            <img src={project1} alt='Image from different projects for Background' />
             <img src={project5} alt='Image from different projects for Background' />
             <img src={project7} alt='Image from different projects for Background' />
           </div>
