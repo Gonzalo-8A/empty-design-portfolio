@@ -114,7 +114,7 @@ export default function Menu () {
             </a>
           </li>
           <li className='overlay-li'>
-            <a href=''>RESERVA ONLINE</a>
+            <a href=''>RESERVAS</a>
           </li>
         </ul>
       </div>

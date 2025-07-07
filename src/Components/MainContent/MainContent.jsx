@@ -13,8 +13,11 @@ export default function MainContent () {
   const { section, setSection } = useContext(PageContext)
 
   const projectsShown = useMemo(() => {
-    return PROJECTS.toSorted(() => Math.random() - 0.5).slice(0, 6)
+    const isMobile = window.innerWidth < 682
+    const count = isMobile ? 3 : 6
+    return PROJECTS.toSorted(() => Math.random() - 0.5).slice(0, count)
   }, [])
+
   const navigate = useNavigate()
 
   const handleClick = (slug) => {

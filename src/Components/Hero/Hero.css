@@ -97,8 +97,8 @@
 
 .hero-title::after {
   content: '';
-  position: fixed; /* Cambio de absolute a fixed para usar coordenadas globales */
-  width: 200px; /* Aumentamos el tamaño para que se vea mejor */
+  position: fixed;
+  width: 200px;
   height: 200px;
   top: var(--y, 50%);
   left: var(--x, 50%);
@@ -131,8 +131,7 @@
 .hero-arrow {
   position: absolute;
   bottom: 2rem;
-  left: 48%;
-  transform: translateX(-50%);
+  left: 50%;
   font-size: 2.5rem;
   animation: bounce 2s infinite;
   cursor: pointer;
@@ -154,10 +153,10 @@
 @keyframes bounce {
   0%,
   100% {
-    transform: translateY(0);
+    transform: translateY(0) translateX(-50%);
   }
   50% {
-    transform: translateY(15px);
+    transform: translateY(15px) translateX(-50%);
   }
 }
 
@@ -176,6 +175,7 @@
   }
   .infinite-carousel img {
     width: 25em;
+    height: 25em;
   }
 }
 
@@ -185,6 +185,7 @@
   }
   .infinite-carousel img {
     width: 20em;
+    height: 20em;
   }
 }
 
@@ -194,6 +195,7 @@
   }
   .infinite-carousel img {
     width: 15em;
+    height: 15em;
   }
 }
 
@@ -203,5 +205,6 @@
   }
   .infinite-carousel img {
     width: 12em;
+    height: 12em;
   }
 }

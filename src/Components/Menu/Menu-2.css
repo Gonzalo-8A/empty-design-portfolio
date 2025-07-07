@@ -66,9 +66,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.8rem;
+  font-size: clamp(1rem, 2vw, 1.8rem);
   font-weight: 800;
-  gap: 2rem;
+  gap: clamp(1rem, 2vw, 2rem);
 }
 
 .overlay-li{
@@ -97,4 +97,16 @@
 .overlay-li a {
   text-decoration: none;
   color: white;
+}
+
+@media (max-width: 800px) {
+  .overlay-ul{
+    flex-direction: column;
+    font-size: 1.8rem;
+    gap: 5rem;
+  }
+  .overlay-li::before,
+  .overlay-li::after {
+    margin: 5px 0px 0 0px;
+  }
 }
