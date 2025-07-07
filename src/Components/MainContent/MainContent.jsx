@@ -8,12 +8,13 @@ import { useNavigate } from 'react-router-dom'
 import Header from '../Header/Header'
 import ProjectsCarousel from '../ProjectsCarousel/ProjectsCarousel'
 import { PROJECTS } from '../../data/PROJECTS.js'
+import { useIsMobile } from '../../hooks/useIsMobile.js'
 
 export default function MainContent () {
   const { section, setSection } = useContext(PageContext)
 
   const projectsShown = useMemo(() => {
-    const isMobile = window.innerWidth < 682
+    const isMobile = useIsMobile(682)
     const count = isMobile ? 3 : 6
     return PROJECTS.toSorted(() => Math.random() - 0.5).slice(0, count)
   }, [])
