@@ -10,7 +10,7 @@
     "predeploy": "pnpm run build",
     "deploy": "gh-pages -d dist"
   },
-  "homepage": "https://gonzalo-8A.github.io/empty-design-portfolio",
+  "homepage": "https://gonzalo-8a.github.io/empty-design-portfolio/#/home",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.7.2",
     "@fortawesome/free-brands-svg-icons": "^6.7.2",
