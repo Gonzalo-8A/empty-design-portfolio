@@ -81,8 +81,7 @@ export default function ProjectPage () {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1, transition: { duration: 2.5 } }}
             viewport={{
-              once: true,
-              amount: 0.5
+              once: true
             }}
             className='pp-info'
           >
