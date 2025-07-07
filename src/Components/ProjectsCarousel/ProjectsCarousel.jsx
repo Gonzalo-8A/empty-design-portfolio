@@ -25,7 +25,12 @@ const ProjectsCarousel = (props) => {
     usePrevNextButtons(emblaApi)
 
   const setTweenFactor = useCallback((emblaApi) => {
-    tweenFactor.current = TWEEN_FACTOR_BASE * emblaApi.scrollSnapList().length
+    if (!emblaApi) {
+      tweenFactor.current = 0
+      return
+    }
+    const snapList = emblaApi.scrollSnapList?.() ?? []
+    tweenFactor.current = TWEEN_FACTOR_BASE * snapList.length
   }, [])
 
   const tweenOpacity = useCallback((emblaApi, eventName) => {
@@ -70,12 +75,13 @@ const ProjectsCarousel = (props) => {
 
     setTweenFactor(emblaApi)
     tweenOpacity(emblaApi)
+
     emblaApi
-      .on('reInit', setTweenFactor)
-      .on('reInit', tweenOpacity)
-      .on('scroll', tweenOpacity)
-      .on('slideFocus', tweenOpacity)
-  }, [emblaApi, tweenOpacity])
+      .on('reInit', () => setTweenFactor(emblaApi))
+      .on('reInit', () => tweenOpacity(emblaApi))
+      .on('scroll', () => tweenOpacity(emblaApi))
+      .on('slideFocus', () => tweenOpacity(emblaApi))
+  }, [emblaApi, setTweenFactor, tweenOpacity])
 
   useEffect(() => {
     if (!emblaApi) return
