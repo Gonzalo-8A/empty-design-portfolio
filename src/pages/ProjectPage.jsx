@@ -155,7 +155,7 @@ export default function ProjectPage () {
                 whileInView={{ opacity: 1, y: 0, transition: { duration: 1.5 } }}
                 viewport={{
                   once: true,
-                  amount: 0.5
+                  amount: 0
                 }}
                 className='pp-project-nav mobile-contact'
                 onClick={() => {
@@ -180,10 +180,7 @@ export default function ProjectPage () {
               </motion.div>
               <motion.div
                 initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1, transition: { duration: 1.5 } }}
-                viewport={{
-                  once: true
-                }}
+                animate={{ opacity: 1, transition: { duration: 1.5 } }}
                 className='pp-project-nav'
                 onClick={() => {
                   setScrollTarget('footer')
