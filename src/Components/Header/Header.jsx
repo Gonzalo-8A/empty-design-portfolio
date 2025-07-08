@@ -1,6 +1,6 @@
 import { scroller } from 'react-scroll'
 import logo from '../../assets/logo.png'
-import Menu from '../Menu/Menu-2.js'
+import Menu from '../Menu/Menu-2.jsx'
 import './Header.css'
 import { useLocation, useNavigate } from 'react-router-dom'
 
