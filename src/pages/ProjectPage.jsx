@@ -94,7 +94,7 @@ export default function ProjectPage () {
                       key={img}
                       src={img}
                       alt='Portadas Editoriales'
-                      style={{ width: '900px', borderRadius: '1rem' }}
+                      style={{ width: '100%', borderRadius: '1rem' }}
                     />
                   )
                 })}
@@ -104,7 +104,7 @@ export default function ProjectPage () {
               <img
                 src={project.projectPage.img}
                 alt={`${project.title} extra images`}
-                style={{ borderRadius: '1rem' }}
+                style={{ borderRadius: '1rem', width: '100%' }}
               />
             )}
             {slug === 'project-8' && (
@@ -114,8 +114,8 @@ export default function ProjectPage () {
                   once: true,
                   amount: 0.9
                 }}
-                width='860'
-                height='615'
+                width='90%'
+                height='600px'
                 src={`https://www.youtube.com/embed/IbiH2cuBnqU?si=tvvAbLvkSLTSuOrg&autoplay=${play}&mute=1`}
                 title='YouTube video player'
                 frameBorder='0'

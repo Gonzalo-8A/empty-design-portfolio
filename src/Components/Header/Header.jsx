@@ -7,7 +7,6 @@ import { useLocation, useNavigate } from 'react-router-dom'
 export default function Header () {
   const location = useLocation()
   const navigate = useNavigate()
-
   const isOnHome = location.pathname === '/home'
 
   const handleScroll = () => {
@@ -25,7 +24,9 @@ export default function Header () {
   return (
     <header>
       <img src={logo} alt='Empty Design Logo' className='header-logo' />
-      <h1 className='header-name' onClick={handleScroll}>Empty Design</h1>
+      <h1 className='header-name' onClick={handleScroll}>
+        Empty Design
+      </h1>
       <Menu />
     </header>
   )

@@ -1,3 +1,15 @@
+#project-page {
+  min-height: calc(100dvh - 120px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#project-page img {
+  height: 300px;
+  object-fit: contain;
+}
+
 .pp-main{
   display: flex;
   align-items: center;
@@ -37,6 +49,7 @@
   max-width: 700px;
   text-align: justify;
   padding: 1rem;
+  margin-bottom: 2rem;
 }
 
 .pp-projects-container{
@@ -44,6 +57,11 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.pp-layout{
+  width: 100%;
+  max-width: 900px;
 }
 
 .pp-footer{
