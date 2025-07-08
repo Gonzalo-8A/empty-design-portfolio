@@ -1,8 +1,7 @@
 .hero {
   padding: 1.5rem;
-  height: 100dvh;
+  min-height: 100dvh;
   width: 100%;
-  min-height: 40em;
   position: relative;
   display: flex;
   align-items: center;
@@ -42,6 +41,9 @@
 
 .infinite-carousel {
   margin: 2em 0;
+  pointer-events: none;
+  user-select: none;
+  touch-action: none;
 }
 
 .infinite-carousel > div {
@@ -64,6 +66,11 @@
   border-radius: 8px;
   height: 300px;
   width: 300px;
+  pointer-events: none;
+  user-select: none;
+  touch-action: none;
+  -webkit-user-drag: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .hero-title {
