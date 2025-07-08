@@ -26,6 +26,18 @@
   pointer-events: none;
 }
 
+.hero.not-ready .background-container {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease-out;
+}
+
+.hero.ready .background-container {
+  opacity: 1;
+  pointer-events: auto;
+  transition: opacity 0.8s ease-in;
+}
+
 .background-container {
   position: absolute;
   height: 200%;

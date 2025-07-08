@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { PageContext } from '../../context/page.jsx'
 import { useNavigate } from 'react-router-dom'
 
-import Header from '../Header/Header'
+import Header from '../Header/Header.jsx'
 import ProjectsCarousel from '../ProjectsCarousel/ProjectsCarousel'
 import { PROJECTS } from '../../data/PROJECTS.js'
 import { useIsMobile } from '../../hooks/useIsMobile.js'

@@ -1,9 +1,9 @@
 import { useEffect, useContext, useLayoutEffect } from 'react'
 import { scroller } from 'react-scroll'
 import { PageContext } from '../context/page'
-import Footer from '../Components/Footer/Footer'
-import Hero from '../Components/Hero/Hero'
-import MainContent from '../Components/MainContent/MainContent'
+import Footer from '../components/Footer/Footer'
+import Hero from '../components/Hero/Hero'
+import MainContent from '../components/MainContent/MainContent'
 
 export default function Home () {
   const { scrollTarget, setScrollTarget } = useContext(PageContext)

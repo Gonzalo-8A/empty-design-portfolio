@@ -1,18 +1,11 @@
 import './Hero.css'
-import project1 from '../../assets/project-1.png'
-import project2 from '../../assets/project-2.jpeg'
-import project3 from '../../assets/project-3.jpg'
-import project4 from '../../assets/project-4.png'
-import project5 from '../../assets/project-5.jpg'
-import project5Extra1 from '../../assets/project-5-extra1.avif'
-import project5Extra2 from '../../assets/project-5-extra2.avif'
-import project5Extra3 from '../../assets/project-5-extra3.avif'
-import project6 from '../../assets/project-6.jpg'
-import project7 from '../../assets/project-7.avif'
-import project8 from '../../assets/project-8.png'
-import project9 from '../../assets/project-9.png'
+import {
+  project1, project2, project3, project4,
+  project5, project5Extra1, project5Extra2, project5Extra3,
+  project6, project7, project8, project9
+} from '../../assets'
 
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { scroller } from 'react-scroll'
 import { motion } from 'framer-motion'
 
@@ -20,6 +13,38 @@ export default function Hero () {
   const backgroundContainerRef = useRef([])
   const titleRef = useRef(null)
   const isHoveringTitle = useRef(false)
+  const [imagesLoaded, setImagesLoaded] = useState(false)
+
+  useEffect(() => {
+    const images = backgroundContainerRef.current?.querySelectorAll('img')
+    if (!images) return
+
+    let loadedCount = 0
+    const total = images.length
+
+    const onLoad = () => {
+      loadedCount++
+      if (loadedCount >= total) {
+        setImagesLoaded(true)
+      }
+    }
+
+    images.forEach((img) => {
+      if (img.complete) {
+        onLoad()
+      } else {
+        img.addEventListener('load', onLoad)
+        img.addEventListener('error', onLoad)
+      }
+    })
+
+    return () => {
+      images.forEach((img) => {
+        img.removeEventListener('load', onLoad)
+        img.removeEventListener('error', onLoad)
+      })
+    }
+  }, [])
 
   useEffect(() => {
     const carousels = backgroundContainerRef.current.querySelectorAll('.infinite-carousel')
@@ -100,88 +125,88 @@ export default function Hero () {
     <motion.section
       initial={{ opacity: 0 }}
       animate={{ opacity: 1, transition: { duration: 1 } }}
-      className='hero'
+      className={`hero ${imagesLoaded ? 'ready' : 'not-ready'}`}
       id='hero-content'
     >
       <div className='background-container' ref={backgroundContainerRef}>
         <div className='infinite-carousel'>
           <div style={{ animation: 'move 70s linear infinite normal' }}>
-            <img src={project1} alt='Image from different projects for Background' />
-            <img src={project2} alt='Image from different projects for Background' />
-            <img src={project3} alt='Image from different projects for Background' />
-            <img src={project8} alt='Image from different projects for Background' />
-            <img src={project1} alt='Image from different projects for Background' />
-            <img src={project2} alt='Image from different projects for Background' />
-            <img src={project3} alt='Image from different projects for Background' />
-            <img src={project8} alt='Image from different projects for Background' />
-            <img src={project1} alt='Image from different projects for Background' />
-            <img src={project2} alt='Image from different projects for Background' />
-            <img src={project3} alt='Image from different projects for Background' />
-            <img src={project8} alt='Image from different projects for Background' />
-            <img src={project1} alt='Image from different projects for Background' />
-            <img src={project2} alt='Image from different projects for Background' />
-            <img src={project3} alt='Image from different projects for Background' />
-            <img src={project8} alt='Image from different projects for Background' />
+            <img loading='lazy' src={project1} alt='Image from different projects for Background' />
+            <img loading='lazy' src={project2} alt='Image from different projects for Background' />
+            <img loading='lazy' src={project3} alt='Image from different projects for Background' />
+            <img loading='lazy' src={project8} alt='Image from different projects for Background' />
+            <img loading='lazy' src={project1} alt='Image from different projects for Background' />
+            <img loading='lazy' src={project2} alt='Image from different projects for Background' />
+            <img loading='lazy' src={project3} alt='Image from different projects for Background' />
+            <img loading='lazy' src={project8} alt='Image from different projects for Background' />
+            <img loading='lazy' src={project1} alt='Image from different projects for Background' />
+            <img loading='lazy' src={project2} alt='Image from different projects for Background' />
+            <img loading='lazy' src={project3} alt='Image from different projects for Background' />
+            <img loading='lazy' src={project8} alt='Image from different projects for Background' />
+            <img loading='lazy' src={project1} alt='Image from different projects for Background' />
+            <img loading='lazy' src={project2} alt='Image from different projects for Background' />
+            <img loading='lazy' src={project3} alt='Image from different projects for Background' />
+            <img loading='lazy' src={project8} alt='Image from different projects for Background' />
           </div>
         </div>
         <div className='infinite-carousel'>
           <div style={{ animation: 'move 55s linear infinite reverse' }}>
-            <img src={project4} alt='Image from different projects for Background' />
-            <img src={project5} alt='Image from different projects for Background' />
-            <img src={project6} alt='Image from different projects for Background' />
-            <img src={project5Extra1} alt='Image from different projects for Background' />
-            <img src={project4} alt='Image from different projects for Background' />
-            <img src={project5} alt='Image from different projects for Background' />
-            <img src={project6} alt='Image from different projects for Background' />
-            <img src={project5Extra1} alt='Image from different projects for Background' />
-            <img src={project4} alt='Image from different projects for Background' />
-            <img src={project5} alt='Image from different projects for Background' />
-            <img src={project6} alt='Image from different projects for Background' />
-            <img src={project5Extra1} alt='Image from different projects for Background' />
-            <img src={project4} alt='Image from different projects for Background' />
-            <img src={project5} alt='Image from different projects for Background' />
-            <img src={project6} alt='Image from different projects for Background' />
-            <img src={project5Extra1} alt='Image from different projects for Background' />
+            <img loading='lazy' src={project4} alt='Image from different projects for Background' />
+            <img loading='lazy' src={project5} alt='Image from different projects for Background' />
+            <img loading='lazy' src={project6} alt='Image from different projects for Background' />
+            <img loading='lazy' src={project5Extra1} alt='Image from different projects for Background' />
+            <img loading='lazy' src={project4} alt='Image from different projects for Background' />
+            <img loading='lazy' src={project5} alt='Image from different projects for Background' />
+            <img loading='lazy' src={project6} alt='Image from different projects for Background' />
+            <img loading='lazy' src={project5Extra1} alt='Image from different projects for Background' />
+            <img loading='lazy' src={project4} alt='Image from different projects for Background' />
+            <img loading='lazy' src={project5} alt='Image from different projects for Background' />
+            <img loading='lazy' src={project6} alt='Image from different projects for Background' />
+            <img loading='lazy' src={project5Extra1} alt='Image from different projects for Background' />
+            <img loading='lazy' src={project4} alt='Image from different projects for Background' />
+            <img loading='lazy' src={project5} alt='Image from different projects for Background' />
+            <img loading='lazy' src={project6} alt='Image from different projects for Background' />
+            <img loading='lazy' src={project5Extra1} alt='Image from different projects for Background' />
           </div>
         </div>
         <div className='infinite-carousel'>
           <div style={{ animation: 'move 60s linear infinite normal' }}>
-            <img src={project7} alt='Image from different projects for Background' />
-            <img src={project5Extra2} alt='Image from different projects for Background' />
-            <img src={project9} alt='Image from different projects for Background' />
-            <img src={project5Extra3} alt='Image from different projects for Background' />{' '}
-            <img src={project7} alt='Image from different projects for Background' />
-            <img src={project5Extra2} alt='Image from different projects for Background' />
-            <img src={project9} alt='Image from different projects for Background' />
-            <img src={project5Extra3} alt='Image from different projects for Background' />{' '}
-            <img src={project7} alt='Image from different projects for Background' />
-            <img src={project5Extra2} alt='Image from different projects for Background' />
-            <img src={project9} alt='Image from different projects for Background' />
-            <img src={project5Extra3} alt='Image from different projects for Background' />{' '}
-            <img src={project7} alt='Image from different projects for Background' />
-            <img src={project5Extra2} alt='Image from different projects for Background' />
-            <img src={project9} alt='Image from different projects for Background' />
-            <img src={project5Extra3} alt='Image from different projects for Background' />
+            <img loading='lazy' src={project7} alt='Image from different projects for Background' />
+            <img loading='lazy' src={project5Extra2} alt='Image from different projects for Background' />
+            <img loading='lazy' src={project9} alt='Image from different projects for Background' />
+            <img loading='lazy' src={project5Extra3} alt='Image from different projects for Background' />{' '}
+            <img loading='lazy' src={project7} alt='Image from different projects for Background' />
+            <img loading='lazy' src={project5Extra2} alt='Image from different projects for Background' />
+            <img loading='lazy' src={project9} alt='Image from different projects for Background' />
+            <img loading='lazy' src={project5Extra3} alt='Image from different projects for Background' />{' '}
+            <img loading='lazy' src={project7} alt='Image from different projects for Background' />
+            <img loading='lazy' src={project5Extra2} alt='Image from different projects for Background' />
+            <img loading='lazy' src={project9} alt='Image from different projects for Background' />
+            <img loading='lazy' src={project5Extra3} alt='Image from different projects for Background' />{' '}
+            <img loading='lazy' src={project7} alt='Image from different projects for Background' />
+            <img loading='lazy' src={project5Extra2} alt='Image from different projects for Background' />
+            <img loading='lazy' src={project9} alt='Image from different projects for Background' />
+            <img loading='lazy' src={project5Extra3} alt='Image from different projects for Background' />
           </div>
         </div>
         <div className='infinite-carousel'>
           <div style={{ animation: 'move 50s linear infinite reverse' }}>
-            <img src={project2} alt='Image from different projects for Background' />
-            <img src={project1} alt='Image from different projects for Background' />
-            <img src={project5} alt='Image from different projects for Background' />
-            <img src={project7} alt='Image from different projects for Background' />{' '}
-            <img src={project2} alt='Image from different projects for Background' />
-            <img src={project1} alt='Image from different projects for Background' />
-            <img src={project5} alt='Image from different projects for Background' />
-            <img src={project7} alt='Image from different projects for Background' />{' '}
-            <img src={project2} alt='Image from different projects for Background' />
-            <img src={project1} alt='Image from different projects for Background' />
-            <img src={project5} alt='Image from different projects for Background' />
-            <img src={project7} alt='Image from different projects for Background' />{' '}
-            <img src={project2} alt='Image from different projects for Background' />
-            <img src={project1} alt='Image from different projects for Background' />
-            <img src={project5} alt='Image from different projects for Background' />
-            <img src={project7} alt='Image from different projects for Background' />
+            <img loading='lazy' src={project2} alt='Image from different projects for Background' />
+            <img loading='lazy' src={project1} alt='Image from different projects for Background' />
+            <img loading='lazy' src={project5} alt='Image from different projects for Background' />
+            <img loading='lazy' src={project7} alt='Image from different projects for Background' />{' '}
+            <img loading='lazy' src={project2} alt='Image from different projects for Background' />
+            <img loading='lazy' src={project1} alt='Image from different projects for Background' />
+            <img loading='lazy' src={project5} alt='Image from different projects for Background' />
+            <img loading='lazy' src={project7} alt='Image from different projects for Background' />{' '}
+            <img loading='lazy' src={project2} alt='Image from different projects for Background' />
+            <img loading='lazy' src={project1} alt='Image from different projects for Background' />
+            <img loading='lazy' src={project5} alt='Image from different projects for Background' />
+            <img loading='lazy' src={project7} alt='Image from different projects for Background' />{' '}
+            <img loading='lazy' src={project2} alt='Image from different projects for Background' />
+            <img loading='lazy' src={project1} alt='Image from different projects for Background' />
+            <img loading='lazy' src={project5} alt='Image from different projects for Background' />
+            <img loading='lazy' src={project7} alt='Image from different projects for Background' />
           </div>
         </div>
       </div>

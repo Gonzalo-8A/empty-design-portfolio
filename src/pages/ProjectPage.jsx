@@ -5,7 +5,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { PageContext } from '../context/page'
 import { motion } from 'framer-motion'
 import { PROJECTS } from '../data/PROJECTS'
-import Header from '../Components/Header/Header'
+import Header from '../components/Header/Header'
 import { useIsMobile } from '../hooks/useIsMobile'
 
 export default function ProjectPage () {
