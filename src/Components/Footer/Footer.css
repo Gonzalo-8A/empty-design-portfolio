@@ -94,7 +94,7 @@
 }
 
 .marquee-content span {
-  font-size: clamp(3rem, 12.5vw, 50rem);
+  font-size: clamp(8rem, 12vw, 50rem);
   font-weight: 700;
   white-space: nowrap;
   pointer-events: none;

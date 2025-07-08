@@ -29,6 +29,9 @@ header {
   .menu{
     width: auto;
   }
+  .header-logo{
+    height: 100px;
+  }
   .header-name{
     display: none;
   }
