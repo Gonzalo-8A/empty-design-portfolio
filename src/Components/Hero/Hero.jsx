@@ -22,6 +22,10 @@ export default function Hero () {
     let loadedCount = 0
     const total = images.length
 
+    const checkImageLoaded = (img) => {
+      return img.complete && img.naturalWidth !== 0
+    }
+
     const onLoad = () => {
       loadedCount++
       if (loadedCount >= total) {
@@ -30,7 +34,7 @@ export default function Hero () {
     }
 
     images.forEach((img) => {
-      if (img.complete) {
+      if (checkImageLoaded(img)) {
         onLoad()
       } else {
         img.addEventListener('load', onLoad)
