@@ -25,12 +25,13 @@ export default function MainContent () {
   }
 
   return (
-    <section id='main-content'>
+    <section>
       <Header />
       <motion.main
         initial={{ opacity: 0, x: -50 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 1 }}
+        id='main-content'
       >
         <AnimatePresence mode='wait'>
           {section === 'projects' && (
@@ -47,13 +48,16 @@ export default function MainContent () {
             >
               <div className='personal-info-container'>
                 <p>
-                  En Empty Design nos apasiona crear diseños que destaquen tu marca ¡y esto es gracias
-                  a la creatividad y visión única de cada cliente! Mantente informado sobre nuestras
-                  últimas creaciones y lo que viene en el mundo del diseño. Si estás interesado en
-                  obtener el toque de un diseñador profesional, contáctanos para conocer más sobre
-                  nuestro portafolio y servicios. Si necesitas más ayuda puedes escribir tus preguntas
-                  en nuestras redes sociales y obtener respuestas instantáneas.
-                  <hr />
+                  En Empty Design nos apasiona crear diseños que destaquen tu marca ¡y esto es
+                  gracias a la creatividad y visión única de cada cliente! Mantente informado sobre
+                  nuestras últimas creaciones y lo que viene en el mundo del diseño. Si estás
+                  interesado en obtener el toque de un diseñador profesional, contáctanos para
+                  conocer más sobre nuestro portafolio y servicios. Si necesitas más ayuda puedes
+                  escribir tus preguntas en nuestras redes sociales y obtener respuestas
+                  instantáneas.
+                </p>
+                <hr />
+                <p>
                   Para mantenerte actualizado con todo en Empty Design, incluyendo consejos y cosas
                   que creemos que son geniales, ¡síguenos en nuestras plataformas digitales!
                 </p>
@@ -79,7 +83,6 @@ export default function MainContent () {
           )}
         </AnimatePresence>
       </motion.main>
-
     </section>
   )
 }
