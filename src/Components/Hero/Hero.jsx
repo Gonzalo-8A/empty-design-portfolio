@@ -8,21 +8,35 @@ import {
 import { useEffect, useRef, useState } from 'react'
 import { scroller } from 'react-scroll'
 import { motion } from 'framer-motion'
+import imagesLoaded from 'imagesloaded'
 
 export default function Hero () {
-  const backgroundContainerRef = useRef(null)
+  const backgroundContainerRef = useRef([])
   const titleRef = useRef(null)
   const isHoveringTitle = useRef(false)
-  const totalImages = 16 * 4
-  const loadCount = useRef(0)
-  const [imagesLoaded, setImagesLoaded] = useState(false)
+  const [imagesLoadedState, setImagesLoadedState] = useState(false)
 
-  const handleImageLoad = () => {
-    loadCount.current++
-    if (loadCount.current === totalImages) {
-      setImagesLoaded(true)
+  useEffect(() => {
+    if (!backgroundContainerRef.current) return
+
+    const imgLoad = imagesLoaded(backgroundContainerRef.current, {
+      background: true
+    })
+
+    imgLoad.on('done', () => {
+      setImagesLoadedState(true)
+    })
+
+    imgLoad.on('fail', () => {
+      setImagesLoadedState(true)
+    })
+
+    // Limpieza
+    return () => {
+      imgLoad.off('done')
+      imgLoad.off('fail')
     }
-  }
+  }, [])
 
   useEffect(() => {
     const carousels = backgroundContainerRef.current.querySelectorAll('.infinite-carousel')
@@ -103,280 +117,88 @@ export default function Hero () {
     <motion.section
       initial={{ opacity: 0 }}
       animate={{ opacity: 1, transition: { duration: 1 } }}
-      className={`hero ${imagesLoaded ? 'ready' : 'not-ready'}`}
+      className={`hero ${imagesLoadedState ? 'ready' : 'not-ready'}`}
       id='hero-content'
     >
       <div className='background-container' ref={backgroundContainerRef}>
         <div className='infinite-carousel'>
           <div style={{ animation: 'move 70s linear infinite normal' }}>
-            <img
-              loading='lazy' src={project1} alt='Image from different projects for Background' onLoad={handleImageLoad}
-              onError={handleImageLoad}
-            />
-            <img
-              loading='lazy' src={project2} alt='Image from different projects for Background' onLoad={handleImageLoad}
-              onError={handleImageLoad}
-            />
-            <img
-              loading='lazy' src={project3} alt='Image from different projects for Background' onLoad={handleImageLoad}
-              onError={handleImageLoad}
-            />
-            <img
-              loading='lazy' src={project8} alt='Image from different projects for Background' onLoad={handleImageLoad}
-              onError={handleImageLoad}
-            />
-            <img
-              loading='lazy' src={project1} alt='Image from different projects for Background' onLoad={handleImageLoad}
-              onError={handleImageLoad}
-            />
-            <img
-              loading='lazy' src={project2} alt='Image from different projects for Background' onLoad={handleImageLoad}
-              onError={handleImageLoad}
-            />
-            <img
-              loading='lazy' src={project3} alt='Image from different projects for Background' onLoad={handleImageLoad}
-              onError={handleImageLoad}
-            />
-            <img
-              loading='lazy' src={project8} alt='Image from different projects for Background' onLoad={handleImageLoad}
-              onError={handleImageLoad}
-            />
-            <img
-              loading='lazy' src={project1} alt='Image from different projects for Background' onLoad={handleImageLoad}
-              onError={handleImageLoad}
-            />
-            <img
-              loading='lazy' src={project2} alt='Image from different projects for Background' onLoad={handleImageLoad}
-              onError={handleImageLoad}
-            />
-            <img
-              loading='lazy' src={project3} alt='Image from different projects for Background' onLoad={handleImageLoad}
-              onError={handleImageLoad}
-            />
-            <img
-              loading='lazy' src={project8} alt='Image from different projects for Background' onLoad={handleImageLoad}
-              onError={handleImageLoad}
-            />
-            <img
-              loading='lazy' src={project1} alt='Image from different projects for Background' onLoad={handleImageLoad}
-              onError={handleImageLoad}
-            />
-            <img
-              loading='lazy' src={project2} alt='Image from different projects for Background' onLoad={handleImageLoad}
-              onError={handleImageLoad}
-            />
-            <img
-              loading='lazy' src={project3} alt='Image from different projects for Background' onLoad={handleImageLoad}
-              onError={handleImageLoad}
-            />
-            <img
-              loading='lazy' src={project8} alt='Image from different projects for Background' onLoad={handleImageLoad}
-              onError={handleImageLoad}
-            />
+            <img loading='lazy' src={project1} alt='Image from different projects for Background' />
+            <img loading='lazy' src={project2} alt='Image from different projects for Background' />
+            <img loading='lazy' src={project3} alt='Image from different projects for Background' />
+            <img loading='lazy' src={project8} alt='Image from different projects for Background' />
+            <img loading='lazy' src={project1} alt='Image from different projects for Background' />
+            <img loading='lazy' src={project2} alt='Image from different projects for Background' />
+            <img loading='lazy' src={project3} alt='Image from different projects for Background' />
+            <img loading='lazy' src={project8} alt='Image from different projects for Background' />
+            <img loading='lazy' src={project1} alt='Image from different projects for Background' />
+            <img loading='lazy' src={project2} alt='Image from different projects for Background' />
+            <img loading='lazy' src={project3} alt='Image from different projects for Background' />
+            <img loading='lazy' src={project8} alt='Image from different projects for Background' />
+            <img loading='lazy' src={project1} alt='Image from different projects for Background' />
+            <img loading='lazy' src={project2} alt='Image from different projects for Background' />
+            <img loading='lazy' src={project3} alt='Image from different projects for Background' />
+            <img loading='lazy' src={project8} alt='Image from different projects for Background' />
           </div>
         </div>
         <div className='infinite-carousel'>
           <div style={{ animation: 'move 55s linear infinite reverse' }}>
-            <img
-              loading='lazy' src={project4} alt='Image from different projects for Background' onLoad={handleImageLoad}
-              onError={handleImageLoad}
-            />
-            <img
-              loading='lazy' src={project5} alt='Image from different projects for Background' onLoad={handleImageLoad}
-              onError={handleImageLoad}
-            />
-            <img
-              loading='lazy' src={project6} alt='Image from different projects for Background' onLoad={handleImageLoad}
-              onError={handleImageLoad}
-            />
-            <img
-              loading='lazy' src={project5Extra1} alt='Image from different projects for Background' onLoad={handleImageLoad}
-              onError={handleImageLoad}
-            />
-            <img
-              loading='lazy' src={project4} alt='Image from different projects for Background' onLoad={handleImageLoad}
-              onError={handleImageLoad}
-            />
-            <img
-              loading='lazy' src={project5} alt='Image from different projects for Background' onLoad={handleImageLoad}
-              onError={handleImageLoad}
-            />
-            <img
-              loading='lazy' src={project6} alt='Image from different projects for Background' onLoad={handleImageLoad}
-              onError={handleImageLoad}
-            />
-            <img
-              loading='lazy' src={project5Extra1} alt='Image from different projects for Background' onLoad={handleImageLoad}
-              onError={handleImageLoad}
-            />
-            <img
-              loading='lazy' src={project4} alt='Image from different projects for Background' onLoad={handleImageLoad}
-              onError={handleImageLoad}
-            />
-            <img
-              loading='lazy' src={project5} alt='Image from different projects for Background' onLoad={handleImageLoad}
-              onError={handleImageLoad}
-            />
-            <img
-              loading='lazy' src={project6} alt='Image from different projects for Background' onLoad={handleImageLoad}
-              onError={handleImageLoad}
-            />
-            <img
-              loading='lazy' src={project5Extra1} alt='Image from different projects for Background' onLoad={handleImageLoad}
-              onError={handleImageLoad}
-            />
-            <img
-              loading='lazy' src={project4} alt='Image from different projects for Background' onLoad={handleImageLoad}
-              onError={handleImageLoad}
-            />
-            <img
-              loading='lazy' src={project5} alt='Image from different projects for Background' onLoad={handleImageLoad}
-              onError={handleImageLoad}
-            />
-            <img
-              loading='lazy' src={project6} alt='Image from different projects for Background' onLoad={handleImageLoad}
-              onError={handleImageLoad}
-            />
-            <img
-              loading='lazy' src={project5Extra1} alt='Image from different projects for Background' onLoad={handleImageLoad}
-              onError={handleImageLoad}
-            />
+            <img loading='lazy' src={project4} alt='Image from different projects for Background' />
+            <img loading='lazy' src={project5} alt='Image from different projects for Background' />
+            <img loading='lazy' src={project6} alt='Image from different projects for Background' />
+            <img loading='lazy' src={project5Extra1} alt='Image from different projects for Background' />
+            <img loading='lazy' src={project4} alt='Image from different projects for Background' />
+            <img loading='lazy' src={project5} alt='Image from different projects for Background' />
+            <img loading='lazy' src={project6} alt='Image from different projects for Background' />
+            <img loading='lazy' src={project5Extra1} alt='Image from different projects for Background' />
+            <img loading='lazy' src={project4} alt='Image from different projects for Background' />
+            <img loading='lazy' src={project5} alt='Image from different projects for Background' />
+            <img loading='lazy' src={project6} alt='Image from different projects for Background' />
+            <img loading='lazy' src={project5Extra1} alt='Image from different projects for Background' />
+            <img loading='lazy' src={project4} alt='Image from different projects for Background' />
+            <img loading='lazy' src={project5} alt='Image from different projects for Background' />
+            <img loading='lazy' src={project6} alt='Image from different projects for Background' />
+            <img loading='lazy' src={project5Extra1} alt='Image from different projects for Background' />
           </div>
         </div>
         <div className='infinite-carousel'>
           <div style={{ animation: 'move 60s linear infinite normal' }}>
-            <img
-              loading='lazy' src={project7} alt='Image from different projects for Background' onLoad={handleImageLoad}
-              onError={handleImageLoad}
-            />
-            <img
-              loading='lazy' src={project5Extra2} alt='Image from different projects for Background' onLoad={handleImageLoad}
-              onError={handleImageLoad}
-            />
-            <img
-              loading='lazy' src={project9} alt='Image from different projects for Background' onLoad={handleImageLoad}
-              onError={handleImageLoad}
-            />
-            <img
-              loading='lazy' src={project5Extra3} alt='Image from different projects for Background' onLoad={handleImageLoad}
-              onError={handleImageLoad}
-            />{' '}
-            <img
-              loading='lazy' src={project7} alt='Image from different projects for Background' onLoad={handleImageLoad}
-              onError={handleImageLoad}
-            />
-            <img
-              loading='lazy' src={project5Extra2} alt='Image from different projects for Background' onLoad={handleImageLoad}
-              onError={handleImageLoad}
-            />
-            <img
-              loading='lazy' src={project9} alt='Image from different projects for Background' onLoad={handleImageLoad}
-              onError={handleImageLoad}
-            />
-            <img
-              loading='lazy' src={project5Extra3} alt='Image from different projects for Background' onLoad={handleImageLoad}
-              onError={handleImageLoad}
-            />{' '}
-            <img
-              loading='lazy' src={project7} alt='Image from different projects for Background' onLoad={handleImageLoad}
-              onError={handleImageLoad}
-            />
-            <img
-              loading='lazy' src={project5Extra2} alt='Image from different projects for Background' onLoad={handleImageLoad}
-              onError={handleImageLoad}
-            />
-            <img
-              loading='lazy' src={project9} alt='Image from different projects for Background' onLoad={handleImageLoad}
-              onError={handleImageLoad}
-            />
-            <img
-              loading='lazy' src={project5Extra3} alt='Image from different projects for Background' onLoad={handleImageLoad}
-              onError={handleImageLoad}
-            />{' '}
-            <img
-              loading='lazy' src={project7} alt='Image from different projects for Background' onLoad={handleImageLoad}
-              onError={handleImageLoad}
-            />
-            <img
-              loading='lazy' src={project5Extra2} alt='Image from different projects for Background' onLoad={handleImageLoad}
-              onError={handleImageLoad}
-            />
-            <img
-              loading='lazy' src={project9} alt='Image from different projects for Background' onLoad={handleImageLoad}
-              onError={handleImageLoad}
-            />
-            <img
-              loading='lazy' src={project5Extra3} alt='Image from different projects for Background' onLoad={handleImageLoad}
-              onError={handleImageLoad}
-            />
+            <img loading='lazy' src={project7} alt='Image from different projects for Background' />
+            <img loading='lazy' src={project5Extra2} alt='Image from different projects for Background' />
+            <img loading='lazy' src={project9} alt='Image from different projects for Background' />
+            <img loading='lazy' src={project5Extra3} alt='Image from different projects for Background' />{' '}
+            <img loading='lazy' src={project7} alt='Image from different projects for Background' />
+            <img loading='lazy' src={project5Extra2} alt='Image from different projects for Background' />
+            <img loading='lazy' src={project9} alt='Image from different projects for Background' />
+            <img loading='lazy' src={project5Extra3} alt='Image from different projects for Background' />{' '}
+            <img loading='lazy' src={project7} alt='Image from different projects for Background' />
+            <img loading='lazy' src={project5Extra2} alt='Image from different projects for Background' />
+            <img loading='lazy' src={project9} alt='Image from different projects for Background' />
+            <img loading='lazy' src={project5Extra3} alt='Image from different projects for Background' />{' '}
+            <img loading='lazy' src={project7} alt='Image from different projects for Background' />
+            <img loading='lazy' src={project5Extra2} alt='Image from different projects for Background' />
+            <img loading='lazy' src={project9} alt='Image from different projects for Background' />
+            <img loading='lazy' src={project5Extra3} alt='Image from different projects for Background' />
           </div>
         </div>
         <div className='infinite-carousel'>
           <div style={{ animation: 'move 50s linear infinite reverse' }}>
-            <img
-              loading='lazy' src={project2} alt='Image from different projects for Background' onLoad={handleImageLoad}
-              onError={handleImageLoad}
-            />
-            <img
-              loading='lazy' src={project1} alt='Image from different projects for Background' onLoad={handleImageLoad}
-              onError={handleImageLoad}
-            />
-            <img
-              loading='lazy' src={project5} alt='Image from different projects for Background' onLoad={handleImageLoad}
-              onError={handleImageLoad}
-            />
-            <img
-              loading='lazy' src={project7} alt='Image from different projects for Background' onLoad={handleImageLoad}
-              onError={handleImageLoad}
-            />{' '}
-            <img
-              loading='lazy' src={project2} alt='Image from different projects for Background' onLoad={handleImageLoad}
-              onError={handleImageLoad}
-            />
-            <img
-              loading='lazy' src={project1} alt='Image from different projects for Background' onLoad={handleImageLoad}
-              onError={handleImageLoad}
-            />
-            <img
-              loading='lazy' src={project5} alt='Image from different projects for Background' onLoad={handleImageLoad}
-              onError={handleImageLoad}
-            />
-            <img
-              loading='lazy' src={project7} alt='Image from different projects for Background' onLoad={handleImageLoad}
-              onError={handleImageLoad}
-            />{' '}
-            <img
-              loading='lazy' src={project2} alt='Image from different projects for Background' onLoad={handleImageLoad}
-              onError={handleImageLoad}
-            />
-            <img
-              loading='lazy' src={project1} alt='Image from different projects for Background' onLoad={handleImageLoad}
-              onError={handleImageLoad}
-            />
-            <img
-              loading='lazy' src={project5} alt='Image from different projects for Background' onLoad={handleImageLoad}
-              onError={handleImageLoad}
-            />
-            <img
-              loading='lazy' src={project7} alt='Image from different projects for Background' onLoad={handleImageLoad}
-              onError={handleImageLoad}
-            />{' '}
-            <img
-              loading='lazy' src={project2} alt='Image from different projects for Background' onLoad={handleImageLoad}
-              onError={handleImageLoad}
-            />
-            <img
-              loading='lazy' src={project1} alt='Image from different projects for Background' onLoad={handleImageLoad}
-              onError={handleImageLoad}
-            />
-            <img
-              loading='lazy' src={project5} alt='Image from different projects for Background' onLoad={handleImageLoad}
-              onError={handleImageLoad}
-            />
-            <img
-              loading='lazy' src={project7} alt='Image from different projects for Background' onLoad={handleImageLoad}
-              onError={handleImageLoad}
-            />
+            <img loading='lazy' src={project2} alt='Image from different projects for Background' />
+            <img loading='lazy' src={project1} alt='Image from different projects for Background' />
+            <img loading='lazy' src={project5} alt='Image from different projects for Background' />
+            <img loading='lazy' src={project7} alt='Image from different projects for Background' />{' '}
+            <img loading='lazy' src={project2} alt='Image from different projects for Background' />
+            <img loading='lazy' src={project1} alt='Image from different projects for Background' />
+            <img loading='lazy' src={project5} alt='Image from different projects for Background' />
+            <img loading='lazy' src={project7} alt='Image from different projects for Background' />{' '}
+            <img loading='lazy' src={project2} alt='Image from different projects for Background' />
+            <img loading='lazy' src={project1} alt='Image from different projects for Background' />
+            <img loading='lazy' src={project5} alt='Image from different projects for Background' />
+            <img loading='lazy' src={project7} alt='Image from different projects for Background' />{' '}
+            <img loading='lazy' src={project2} alt='Image from different projects for Background' />
+            <img loading='lazy' src={project1} alt='Image from different projects for Background' />
+            <img loading='lazy' src={project5} alt='Image from different projects for Background' />
+            <img loading='lazy' src={project7} alt='Image from different projects for Background' />
           </div>
         </div>
       </div>
