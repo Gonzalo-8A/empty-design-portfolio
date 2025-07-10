@@ -1,13 +1,39 @@
-# React + Vite
+# 🎨 Empty Design Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+*Un portfolio limpio y minimalista para destacar el trabajo de una diseñadora gráfica.*
 
-Currently, two official plugins are available:
+[![Deploy](https://img.shields.io/badge/Ver%20online-AQUÍ-61dafb?style=for-the-badge&logo=vercel&logoColor=white)](https://gonzalo-8a.github.io/empty-design-portfolio/)
+![React](https://img.shields.io/badge/React-18.x-61dafb?style=for-the-badge&logo=react)
+![Framer Motion](https://img.shields.io/badge/Framer--Motion-Animaciones-black?style=for-the-badge&logo=framer)
+![Estado](https://img.shields.io/badge/estado-en%20desarrollo-orange?style=for-the-badge)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## ✨ Descripción
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-# empty-design-portfolio
+**Empty Design Portfolio** es una interfaz moderna diseñada como escaparate digital para una diseñadora gráfica. El foco está en una experiencia visual limpia, fluida y profesional, desarrollada con **React** y animaciones con **Framer Motion**.
+
+---
+
+## 🛠️ Tecnologías usadas
+
+- 🧱 **React** — Librería principal de construcción de componentes.
+- ⚡ Vite — Un bundler ultrarrápido para proyectos modernos, que acelera el desarrollo con recarga instantánea y una configuración mínima, mejorando la experiencia del desarrollador.
+- 💅 **CSS** — Estilizado personalizado para cada sección.
+- ✨ **Framer Motion** — Transiciones y animaciones suaves.
+- ⚛️ **HTML & JS** — Base estructural y lógica.
+- 🚀 **GitHub Pages** — Deploy estático.
+
+---
+
+## 🧩 Características
+
+- 🎬 **Intro animada** que desaparece al hacer scroll.
+- 🧭 **Menú fijo superior** con navegación suave.
+- 🖼️ **Carrusel de proyectos interactivo**, expandible sin recargar.
+- 🎨 **Diseño responsive** adaptado a todos los dispositivos.
+- 📩 **Sección de contacto** clara y accesible.
+- 🌓 **Modo claro / oscuro** (opcional según ajustes futuros).
+- 🌍 **Preparado para internacionalización** (i18n ready).
+
+---
